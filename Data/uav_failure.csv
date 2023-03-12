@@ -1,0 +1,13 @@
+Name,Rate,Power
+Motor,1.24,-4
+Communication link, 5.96,-4
+Battery,7.42,-4
+Cargo holds,8.81,-5
+Electron speed regulator,8.39,-6
+Throttle,7.61,-6
+Flight control system,6.71,-6
+Navigation system,6.19,-6
+Rotor,4.95,-6
+Arm,4.95,-6
+Altitude measurement sensor,2.13,-6
+Remote control,2.13,-6

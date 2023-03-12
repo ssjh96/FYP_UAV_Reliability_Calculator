@@ -19,8 +19,8 @@
      <rect>
       <x>10</x>
       <y>20</y>
-      <width>731</width>
-      <height>605</height>
+      <width>878</width>
+      <height>689</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -716,12 +716,44 @@
      <x>0</x>
      <y>0</y>
      <width>796</width>
-     <height>22</height>
+     <height>24</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>rate_1</tabstop>
+  <tabstop>rate_1_1</tabstop>
+  <tabstop>mtbf_1_1</tabstop>
+  <tabstop>rate_1_2</tabstop>
+  <tabstop>mtbf_1_2</tabstop>
+  <tabstop>rate_1_3</tabstop>
+  <tabstop>mtbf_1_3</tabstop>
+  <tabstop>rate_1_4</tabstop>
+  <tabstop>mtbf_1_4</tabstop>
+  <tabstop>rate_2</tabstop>
+  <tabstop>rate_2_1</tabstop>
+  <tabstop>mtbf_2_1</tabstop>
+  <tabstop>rate_2_2</tabstop>
+  <tabstop>mtbf_2_2</tabstop>
+  <tabstop>rate_3</tabstop>
+  <tabstop>mtbf_3</tabstop>
+  <tabstop>rate_4</tabstop>
+  <tabstop>mtbf_4</tabstop>
+  <tabstop>rate_5</tabstop>
+  <tabstop>rate_5_1</tabstop>
+  <tabstop>mtbf_5_1</tabstop>
+  <tabstop>rate_5_2</tabstop>
+  <tabstop>mtbf_5_2</tabstop>
+  <tabstop>rate_6</tabstop>
+  <tabstop>mtbf_6</tabstop>
+  <tabstop>rate_7</tabstop>
+  <tabstop>mtbf_7</tabstop>
+  <tabstop>input_1</tabstop>
+  <tabstop>enter_button</tabstop>
+  <tabstop>next_button</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
