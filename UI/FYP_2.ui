@@ -108,10 +108,18 @@
         </widget>
        </item>
        <item row="10" column="1">
-        <widget class="QLineEdit" name="rate_5"/>
+        <widget class="QLineEdit" name="rate_5">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item row="12" column="2">
-        <widget class="QLineEdit" name="rate_5_2"/>
+        <widget class="QLineEdit" name="rate_5_2">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item row="12" column="1">
         <widget class="QLabel" name="rate_5_2_label">
@@ -125,6 +133,9 @@
        </item>
        <item row="8" column="1">
         <widget class="QLineEdit" name="rate_3">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="text">
           <string/>
          </property>
@@ -251,7 +262,11 @@
         <widget class="QLineEdit" name="mtbf_1_2"/>
        </item>
        <item row="5" column="1">
-        <widget class="QLineEdit" name="rate_2"/>
+        <widget class="QLineEdit" name="rate_2">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item row="8" column="4">
         <widget class="QLineEdit" name="mtbf_3"/>
@@ -349,10 +364,18 @@
         </widget>
        </item>
        <item row="11" column="2">
-        <widget class="QLineEdit" name="rate_5_1"/>
+        <widget class="QLineEdit" name="rate_5_1">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item row="9" column="1">
-        <widget class="QLineEdit" name="rate_4"/>
+        <widget class="QLineEdit" name="rate_4">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item row="8" column="0">
         <widget class="QLabel" name="rate_3_label">
@@ -385,10 +408,18 @@
         </widget>
        </item>
        <item row="2" column="2">
-        <widget class="QLineEdit" name="rate_1_2"/>
+        <widget class="QLineEdit" name="rate_1_2">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item row="1" column="2">
-        <widget class="QLineEdit" name="rate_1_1"/>
+        <widget class="QLineEdit" name="rate_1_1">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item row="9" column="3">
         <widget class="QLabel" name="mtbf_4_label">
@@ -412,7 +443,11 @@
         </widget>
        </item>
        <item row="14" column="1">
-        <widget class="QLineEdit" name="rate_7"/>
+        <widget class="QLineEdit" name="rate_7">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item row="8" column="2">
         <spacer name="horizontalSpacer_16">
@@ -461,7 +496,11 @@
         </widget>
        </item>
        <item row="4" column="2">
-        <widget class="QLineEdit" name="rate_1_4"/>
+        <widget class="QLineEdit" name="rate_1_4">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item row="5" column="2">
         <spacer name="horizontalSpacer_8">
@@ -480,7 +519,11 @@
         </spacer>
        </item>
        <item row="13" column="1">
-        <widget class="QLineEdit" name="rate_6"/>
+        <widget class="QLineEdit" name="rate_6">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item row="4" column="4">
         <widget class="QLineEdit" name="mtbf_1_4"/>
@@ -508,7 +551,11 @@
         <widget class="QLineEdit" name="mtbf_6"/>
        </item>
        <item row="7" column="2">
-        <widget class="QLineEdit" name="rate_2_2"/>
+        <widget class="QLineEdit" name="rate_2_2">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item row="9" column="0">
         <widget class="QLabel" name="rate_4_label">
@@ -518,7 +565,11 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QLineEdit" name="rate_1"/>
+        <widget class="QLineEdit" name="rate_1">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item row="7" column="4">
         <widget class="QLineEdit" name="mtbf_2_2"/>
@@ -586,7 +637,11 @@
         </spacer>
        </item>
        <item row="6" column="2">
-        <widget class="QLineEdit" name="rate_2_1"/>
+        <widget class="QLineEdit" name="rate_2_1">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item row="11" column="4">
         <widget class="QLineEdit" name="mtbf_5_1">
@@ -603,7 +658,11 @@
         </widget>
        </item>
        <item row="3" column="2">
-        <widget class="QLineEdit" name="rate_1_3"/>
+        <widget class="QLineEdit" name="rate_1_3">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item row="1" column="3">
         <widget class="QLabel" name="mtbf_1_1_label">
@@ -689,7 +748,11 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="input_1"/>
+        <widget class="QLineEdit" name="input_1">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
