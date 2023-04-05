@@ -20,7 +20,7 @@
       <x>10</x>
       <y>20</y>
       <width>878</width>
-      <height>813</height>
+      <height>847</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -1027,6 +1027,13 @@
       <widget class="QPushButton" name="next_button">
        <property name="text">
         <string>Next Page</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="back_button">
+       <property name="text">
+        <string>Back</string>
        </property>
       </widget>
      </item>
