@@ -1,7 +1,8 @@
 import sys
 import re
 import csv
-from PyQt5 import QtWidgets
+import PyQt5
+from PyQt5 import QtWidgets, QtCore
 from PyQt5.uic import loadUi
 
 # Global values
@@ -336,6 +337,10 @@ def get_scientific_notation(x):
 
 
 if __name__ == '__main__':
+    if hasattr(QtCore.Qt, 'AA_EnableHighDpiScaling'):
+        PyQt5.QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling, True)
+    if hasattr(QtCore.Qt, 'AA_UseHighDpiPixmaps'):
+        PyQt5.QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_UseHighDpiPixmaps, True)
     app = QtWidgets.QApplication(sys.argv)
     widget = QtWidgets.QStackedWidget()
     page_1 = Page1()
