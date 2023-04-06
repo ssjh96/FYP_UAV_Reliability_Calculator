@@ -163,19 +163,11 @@ class Page2(QtWidgets.QMainWindow):
         p1_ua = sum(totals)
         self.input_1.setText(f'{get_scientific_notation(p1_ua)}')
 
-        # Values
-        # self.sub_rates = dict()
-        # self.comp_rates = dict()
-        # self.sub_mtbf = dict()
-        # self.comp_mtbf = dict()
-
         # Buttons
         self.enter_button.clicked.connect(self.calculate)
         self.next_button.clicked.connect(go_next)
         self.back_button.clicked.connect(go_previous)
 
-
-        # print(self.failure_data)
         self.show()
 
     def calculate(self):
@@ -197,41 +189,41 @@ class Page2(QtWidgets.QMainWindow):
         try:
             for row in inputs:
                 if not row[1].text() == '':
-                    self.rates[row[2]][row[3]] = 1/float(row[1].text())
-                    row[0].setText(get_scientific_notation(self.rates[row[2]][row[3]]))
+                    rates[row[2]][row[3]] = 1/float(row[1].text())
+                    row[0].setText(get_scientific_notation(rates[row[2]][row[3]]))
 
             # Power
             # total_1 = float(self.rate_1_1.text()) + float(self.rate_1_2.text()) + float(self.rate_1_3.text()) + float(self.rate_1_4.text())
-            self.totals[0] = sum(self.rates[0])
-            self.rate_1.setText(get_scientific_notation(self.totals[0]))
+            totals[0] = sum(rates[0])
+            self.rate_1.setText(get_scientific_notation(totals[0]))
 
             # FCS
             # total_2 = float(self.rate_2_1.text()) + float(self.rate_2_2.text())
-            self.totals[1] = sum(self.rates[1])
-            self.rate_2.setText(get_scientific_notation(self.totals[1]))
+            totals[1] = sum(rates[1])
+            self.rate_2.setText(get_scientific_notation(totals[1]))
 
             #
             # total_3 = float(self.rate_3_1.text())
-            self.totals[2] = sum(self.rates[2])
-            self.rate_3.setText(get_scientific_notation(self.totals[2]))
+            totals[2] = sum(rates[2])
+            self.rate_3.setText(get_scientific_notation(totals[2]))
 
             # total_4 = float(self.rate_4_1.text())
-            self.totals[3] = sum(self.rates[3])
-            self.rate_4.setText(get_scientific_notation(self.totals[3]))
+            totals[3] = sum(rates[3])
+            self.rate_4.setText(get_scientific_notation(totals[3]))
 
             # total_5 = float(self.rate_5_1.text()) + float(self.rate_5_2.text())
-            self.totals[4] = sum(self.rates[4])
-            self.rate_5.setText(get_scientific_notation(self.totals[4]))
+            totals[4] = sum(rates[4])
+            self.rate_5.setText(get_scientific_notation(totals[4]))
             #
             # total_6 = float(self.rate_6_1.text())
-            self.totals[5] = sum(self.rates[5])
-            self.rate_6.setText(get_scientific_notation(self.totals[5]))
+            totals[5] = sum(rates[5])
+            self.rate_6.setText(get_scientific_notation(totals[5]))
 
             # total_7 = float(self.rate_7_1.text())
-            self.totals[6] = sum(self.rates[6])
-            self.rate_7.setText(get_scientific_notation(self.totals[6]))
+            totals[6] = sum(rates[6])
+            self.rate_7.setText(get_scientific_notation(totals[6]))
 
-            p1_ua = sum(self.totals)
+            p1_ua = sum(totals)
             self.input_1.setText(get_scientific_notation(p1_ua))
 
             self.next_button.setEnabled(True)
