@@ -37,18 +37,46 @@
         <widget class="QComboBox" name="places_dropdown"/>
        </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="place_message_label">
          <property name="text">
-          <string>TextLabel</string>
+          <string/>
          </property>
         </widget>
        </item>
       </layout>
      </item>
      <item>
-      <widget class="QLabel" name="message_label">
+      <widget class="QLabel" name="tlos_label">
        <property name="text">
-        <string>TextLabel</string>
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="mtow_label">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="p1_subzone_label">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="p1_ua_label">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="success_message_label">
+       <property name="text">
+        <string/>
        </property>
       </widget>
      </item>

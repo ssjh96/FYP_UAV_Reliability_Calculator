@@ -8,7 +8,7 @@ from PyQt5.uic import loadUi
 mtow = -1.0
 tlos_pow = -1
 rates = [[None] * 4, [None] * 2, [None], [None], [None] * 2, [None], [None]]
-final_total = 0
+p1_ua = 0
 totals = [None] * 7
 
 
@@ -114,53 +114,53 @@ class Page2(QtWidgets.QMainWindow):
         # 1
         self.rate_1_label.setText('Power System')
         self.rate_1_1_label.setText('Motor')
-        self.rate_1_1.setText(f'{rates[0][0]:.1e}')
+        self.rate_1_1.setText(f'{get_scientific_notation(rates[0][0])}')
         self.rate_1_2_label.setText('Battery')
-        self.rate_1_2.setText(f'{rates[0][1]:.1e}')
+        self.rate_1_2.setText(f'{get_scientific_notation(rates[0][1])}')
         self.rate_1_3_label.setText('Electron Speed Regulator')
-        self.rate_1_3.setText(f'{rates[0][2]:.1e}')
+        self.rate_1_3.setText(f'{get_scientific_notation(rates[0][2])}')
         self.rate_1_4_label.setText('Throttle')
-        self.rate_1_4.setText(f'{rates[0][3]:.1e}')
-        self.rate_1.setText(f'{totals[0]:.1e}')
+        self.rate_1_4.setText(f'{get_scientific_notation(rates[0][3])}')
+        self.rate_1.setText(f'{get_scientific_notation(totals[0])}')
         # 2
         self.rate_2_label.setText('Flight Control System')
         self.rate_2_1_label.setText('Flight Control System')
-        self.rate_2_1.setText(f'{rates[1][0]:.1e}')
+        self.rate_2_1.setText(f'{get_scientific_notation(rates[1][0])}')
         self.rate_2_2_label.setText('Altitude Measurement Sensor')
-        self.rate_2_2.setText(f'{rates[1][1]:.1e}')
-        self.rate_2.setText(f'{totals[1]:.1e}')
+        self.rate_2_2.setText(f'{get_scientific_notation(rates[1][1])}')
+        self.rate_2.setText(f'{get_scientific_notation(totals[1])}')
         # 3
         self.rate_3_label.setText('Electrical System')
         self.rate_3_1_label.setText('Navigation System')
-        self.rate_3_1.setText(f'{rates[2][0]:.1e}')
-        self.rate_3.setText(f'{totals[2]:.1e}')
+        self.rate_3_1.setText(f'{get_scientific_notation(rates[2][0])}')
+        self.rate_3.setText(f'{get_scientific_notation(totals[2])}')
         # 4
         self.rate_4_label.setText('Communication System')
         self.rate_4_1_label.setText('Communication Link')
-        self.rate_4_1.setText(f'{rates[3][0]:.1e}')
-        self.rate_4.setText(f'{totals[3]:.1e}')
+        self.rate_4_1.setText(f'{get_scientific_notation(rates[3][0])}')
+        self.rate_4.setText(f'{get_scientific_notation(totals[3])}')
         # 5
         self.rate_5_label.setText('Frame')
         self.rate_5_1_label.setText('Arm')
-        self.rate_5_1.setText(f'{rates[4][0]:.1e}')
+        self.rate_5_1.setText(f'{get_scientific_notation(rates[4][0])}')
         self.rate_5_2_label.setText('Rotor')
-        self.rate_5_2.setText(f'{rates[4][1]:.1e}')
-        self.rate_5.setText(f'{totals[4]:.1e}')
+        self.rate_5_2.setText(f'{get_scientific_notation(rates[4][1])}')
+        self.rate_5.setText(f'{get_scientific_notation(totals[4])}')
         # 6
         self.rate_6_label.setText('Cargo Holds')
         self.rate_6_1_label.setText('Cargo Holds')
-        self.rate_6_1.setText(f'{rates[5][0]:.1e}')
-        self.rate_6.setText(f'{totals[5]:.1e}')
+        self.rate_6_1.setText(f'{get_scientific_notation(rates[5][0])}')
+        self.rate_6.setText(f'{get_scientific_notation(totals[5])}')
         # 7
         self.rate_7_label.setText('Ground Support System')
         self.rate_7_1_label.setText('Remote Control')
-        self.rate_7_1.setText(f'{rates[6][0]:.1e}')
-        self.rate_7.setText(f'{totals[6]:.1e}')
+        self.rate_7_1.setText(f'{get_scientific_notation(rates[6][0])}')
+        self.rate_7.setText(f'{get_scientific_notation(totals[6])}')
 
         # Total
-        global final_total
-        final_total = sum(totals)
-        self.input_1.setText(f'{final_total:.1e}')
+        global p1_ua
+        p1_ua = sum(totals)
+        self.input_1.setText(f'{get_scientific_notation(p1_ua)}')
 
         # Values
         # self.sub_rates = dict()
@@ -230,8 +230,8 @@ class Page2(QtWidgets.QMainWindow):
             self.totals[6] = sum(self.rates[6])
             self.rate_7.setText(get_scientific_notation(self.totals[6]))
 
-            self.final_total = sum(self.totals)
-            self.input_1.setText(get_scientific_notation(self.final_total))
+            p1_ua = sum(self.totals)
+            self.input_1.setText(get_scientific_notation(p1_ua))
 
             self.next_button.setEnabled(True)
 
@@ -272,9 +272,11 @@ class Page3(QtWidgets.QMainWindow):
                 if row[1] == chosen:
                     if row[4]:
                         print(f'{row[1]} area: {row[3]}')
+                        self.place_message_label.setText(f'{row[1]} area: {row[3]}')
                         area = float(row[3])
                     else:
-                        print('Entry does not have area data')
+                        print(f'{row[1]} does not have area data.')
+                        self.place_message_label.setText(f'{row[1]} population: {row[3]}')
                         return
 
         with open('Data/TotalSZData.csv', newline='') as f:
@@ -284,9 +286,12 @@ class Page3(QtWidgets.QMainWindow):
                 if row[2] == chosen:
                     if row[4]:
                         print(f'{row[2]} population: {row[4]}')
+                        current_text = self.place_message_label.text()
+                        self.place_message_label.setText(f'{current_text}\n{row[2]} population: {row[4]}')
                         population = float(row[4])
                     else:
-                        print('Entry does not have population data')
+                        print(f'{row[2]} does not have population data.')
+                        self.place_message_label.setText(f'{row[2]} does not have population data.')
                         return
 
         # P1_subzone: failure rate = TLOS/(P2/P3)
@@ -298,10 +303,18 @@ class Page3(QtWidgets.QMainWindow):
         tlos = pow(10, (tlos_pow))
         print(f'{tlos = }, {tlos_pow}')
         p1_subzone = tlos / (p2 * 1)
+        success = p1_ua < p1_subzone
+        success_message = 'Can fly ' if success else 'Cannot fly'
 
-        print(f'{p1_subzone =  }, {p1_subzone:.1e}')
-        print(f'{final_total =  }, {final_total:.1e}')
-        print(f'P1_UA < P1_subzone: {final_total < p1_subzone}')
+        self.mtow_label.setText(f'MTOW: {get_scientific_notation(mtow)}')
+        self.tlos_label.setText(f'TLOS: {get_scientific_notation(tlos)}')
+        self.p1_subzone_label.setText(f'P1_subzone: {get_scientific_notation(p1_subzone)}')
+        self.p1_ua_label.setText(f'P1_UA: {get_scientific_notation(p1_ua)}')
+        self.success_message_label.setText(f'P1_UA < P1_subzone: {success}\n{success_message}')
+
+        print(f'{p1_subzone =  }, {get_scientific_notation(p1_subzone)}')
+        print(f'{p1_ua =  }, {get_scientific_notation(p1_ua)}')
+        print(f'P1_UA < P1_subzone: {success}')
 
 
 def go_next():
