@@ -1,5 +1,4 @@
 import sys
-import re
 import csv
 import PyQt5
 from PyQt5 import QtWidgets, QtCore
@@ -21,9 +20,9 @@ class Page1(QtWidgets.QMainWindow):
         loadUi('ui/FYP_1.ui', self)
 
         # Labels
-        self.input_1_label.setText('MTOW')
+        self.input_1_label.setText('MTOW (kg)')
         self.input_2_label.setText('TLOS')
-        self.input_1.setText('28.75')
+        self.input_1.setText('26.25')
         self.input_2.setText('7')
 
         # Buttons
@@ -113,7 +112,7 @@ class Page2(QtWidgets.QMainWindow):
         # total_7 = sum([rate_7_1])
 
         # 1
-        self.rate_1_label.setText('Power System')
+        self.rate_1_label.setText('1) Power System')
         self.rate_1_1_label.setText('Motor')
         self.rate_1_1.setText(f'{get_scientific_notation(rates[0][0])}')
         self.rate_1_2_label.setText('Battery')
@@ -123,44 +122,70 @@ class Page2(QtWidgets.QMainWindow):
         self.rate_1_4_label.setText('Throttle')
         self.rate_1_4.setText(f'{get_scientific_notation(rates[0][3])}')
         self.rate_1.setText(f'{get_scientific_notation(totals[0])}')
+
+        self.mtbf_1_1_label.setText('MTBF (Motor)')
+        self.mtbf_1_2_label.setText('MTBF (Battery)')
+        self.mtbf_1_3_label.setText('MTBF (ESR)')
+        self.mtbf_1_4_label.setText('MTBF (Throttle)')
+
         # 2
-        self.rate_2_label.setText('Flight Control System')
+        self.rate_2_label.setText('2) Flight Control System')
         self.rate_2_1_label.setText('Flight Control System')
         self.rate_2_1.setText(f'{get_scientific_notation(rates[1][0])}')
         self.rate_2_2_label.setText('Altitude Measurement Sensor')
         self.rate_2_2.setText(f'{get_scientific_notation(rates[1][1])}')
         self.rate_2.setText(f'{get_scientific_notation(totals[1])}')
+
+        self.mtbf_2_1_label.setText('MTBF (FCS)')
+        self.mtbf_2_2_label.setText('MTBF (AMS)')
+
         # 3
-        self.rate_3_label.setText('Electrical System')
+        self.rate_3_label.setText('3) Electrical System')
         self.rate_3_1_label.setText('Navigation System')
         self.rate_3_1.setText(f'{get_scientific_notation(rates[2][0])}')
         self.rate_3.setText(f'{get_scientific_notation(totals[2])}')
+
+        self.mtbf_3_1_label.setText('MTBF (NS)')
+
         # 4
-        self.rate_4_label.setText('Communication System')
+        self.rate_4_label.setText('4) Communication System')
         self.rate_4_1_label.setText('Communication Link')
         self.rate_4_1.setText(f'{get_scientific_notation(rates[3][0])}')
         self.rate_4.setText(f'{get_scientific_notation(totals[3])}')
+
+        self.mtbf_4_1_label.setText('MTBF (CL)')
+
         # 5
-        self.rate_5_label.setText('Frame')
+        self.rate_5_label.setText('5) Frame')
         self.rate_5_1_label.setText('Arm')
         self.rate_5_1.setText(f'{get_scientific_notation(rates[4][0])}')
         self.rate_5_2_label.setText('Rotor')
         self.rate_5_2.setText(f'{get_scientific_notation(rates[4][1])}')
         self.rate_5.setText(f'{get_scientific_notation(totals[4])}')
+
+        self.mtbf_5_1_label.setText('MTBF (Arm)')
+        self.mtbf_5_2_label.setText('MTBF (Rotor)')
+
         # 6
-        self.rate_6_label.setText('Cargo Holds')
+        self.rate_6_label.setText('6) Cargo Holds')
         self.rate_6_1_label.setText('Cargo Holds')
         self.rate_6_1.setText(f'{get_scientific_notation(rates[5][0])}')
         self.rate_6.setText(f'{get_scientific_notation(totals[5])}')
+
+        self.mtbf_6_1_label.setText('MTBF (CH)')
+
         # 7
-        self.rate_7_label.setText('Ground Support System')
+        self.rate_7_label.setText('7) Ground Support System')
         self.rate_7_1_label.setText('Remote Control')
         self.rate_7_1.setText(f'{get_scientific_notation(rates[6][0])}')
         self.rate_7.setText(f'{get_scientific_notation(totals[6])}')
 
+        self.mtbf_7_1_label.setText('MTBF (RC)')
+
         # Total
         global p1_ua
         p1_ua = sum(totals)
+        self.input_1_label.setText('Overall UAV System Failure Rate (P1_ua)')
         self.input_1.setText(f'{get_scientific_notation(p1_ua)}')
 
         # Buttons
@@ -240,7 +265,7 @@ class Page3(QtWidgets.QMainWindow):
 
         loadUi('ui/FYP_3.ui', self)
 
-        self.places_label.setText("Where are you flying?")
+        self.places_label.setText("Select Subzone:")
 
         # Populate dropdown menu
         with open('Data/TotalSZData.csv', newline='') as f:
@@ -302,9 +327,9 @@ class Page3(QtWidgets.QMainWindow):
         print(f'{tlos = }, {tlos_pow}')
         p1_subzone = tlos / (p2 * 1)
         success = p1_ua < p1_subzone
-        success_message = 'Can fly ' if success else 'Cannot fly'
+        success_message = 'UAV is safe for flight in selected subzone.' if success else 'UAV is not safe for flight in selected subzone.'
 
-        self.mtow_label.setText(f'MTOW: {get_scientific_notation(mtow)}')
+        self.mtow_label.setText(f'MTOW: {mtow}')
         self.tlos_label.setText(f'TLOS: {get_scientific_notation(tlos)}')
         self.p1_subzone_label.setText(f'P1_subzone: {get_scientific_notation(p1_subzone)}')
         self.p1_ua_label.setText(f'P1_UA: {get_scientific_notation(p1_ua)}')
