@@ -319,13 +319,21 @@ class Page3(QtWidgets.QMainWindow):
 
         # P1_subzone: failure rate = TLOS/(P2/P3)
         # P2 = Crash Area * Population Density * Sheltering Factor
-        global mtow, tlos_pow
-        p2 = (mtow * 0.220464) * (population/area)
-        print(f'p2 = ({mtow} * 0.220464) * ({population}/{area})')
         # P3 = 1
+
+        global mtow, tlos_pow
+        Ac = mtow * 0.220464
+        Dp = population/area
+        Fs = 1
+
+        p2 = Ac * Dp * Fs
+        print(f'p2 = Ac * Dp * Fs')
+
+        p3 = 1
         tlos = pow(10, (tlos_pow))
         print(f'{tlos = }, {tlos_pow}')
-        p1_subzone = tlos / (p2 * 1)
+
+        p1_subzone = tlos / (p2 * p3)
         success = p1_ua < p1_subzone
         success_message = 'UAV is safe for flight in selected subzone.' if success else 'UAV is not safe for flight in selected subzone.'
 
