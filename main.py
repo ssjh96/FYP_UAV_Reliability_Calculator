@@ -246,8 +246,13 @@ class Page3(QtWidgets.QMainWindow):
         with open('Data/TotalSZData.csv', newline='') as f:
             places = csv.reader(f, delimiter=',', quotechar='|')
             next(places)            # Skip header
+            names = []
             for row in places:
-                self.places_dropdown.addItem(row[2])
+                names.append(row[2])
+
+        names.sort()
+        for name in names:
+            self.places_dropdown.addItem(name)
 
         self.enter_button.clicked.connect(self.check_place)
         self.back_button.clicked.connect(go_previous)
