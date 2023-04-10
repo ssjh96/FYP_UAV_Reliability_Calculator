@@ -46,7 +46,7 @@
       </layout>
      </item>
      <item>
-      <widget class="QLabel" name="tlos_label">
+      <widget class="QLabel" name="elos_label">
        <property name="text">
         <string/>
        </property>
@@ -60,14 +60,14 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="p1_subzone_label">
+      <widget class="QLabel" name="p1_ua_label">
        <property name="text">
         <string/>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="p1_ua_label">
+      <widget class="QLabel" name="p1_subzone_label">
        <property name="text">
         <string/>
        </property>
@@ -103,7 +103,7 @@
      <x>0</x>
      <y>0</y>
      <width>798</width>
-     <height>24</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

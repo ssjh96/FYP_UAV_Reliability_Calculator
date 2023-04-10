@@ -6,7 +6,7 @@ from PyQt5.uic import loadUi
 
 # Global values
 mtow = -1.0
-tlos_pow = -1
+elos_pow = -1
 rates = [[None] * 4, [None] * 2, [None], [None], [None] * 2, [None], [None]]
 p1_ua = 0
 totals = [None] * 7
@@ -21,7 +21,7 @@ class Page1(QtWidgets.QMainWindow):
 
         # Labels
         self.input_1_label.setText('MTOW (kg)')
-        self.input_2_label.setText('TLOS')
+        self.input_2_label.setText('ELOS')
         self.input_1.setText('26.25')
         self.input_2.setText('7')
 
@@ -43,11 +43,11 @@ class Page1(QtWidgets.QMainWindow):
 
             global mtow
             mtow = input_1
-            global tlos_pow
-            tlos_pow = input_2 * -1         # Convert to negative
+            global elos_pow
+            elos_pow = input_2 * -1         # Convert to negative
 
             print(f'{mtow = }')
-            print(f'{tlos_pow = }')
+            print(f'{elos_pow = }')
 
             self.next_button.setEnabled(True)
             # self.error_message.setText('')
@@ -317,11 +317,11 @@ class Page3(QtWidgets.QMainWindow):
                         self.place_message_label.setText(f'{row[2]} does not have population data.')
                         return
 
-        # P1_subzone: failure rate = TLOS/(P2/P3)
+        # P1_subzone: failure rate = ELOS/(P2/P3)
         # P2 = Crash Area * Population Density * Sheltering Factor
         # P3 = 1
 
-        global mtow, tlos_pow
+        global mtow, elos_pow
         Ac = mtow * 0.220464
         Dp = population/area
         Fs = 1
@@ -330,21 +330,21 @@ class Page3(QtWidgets.QMainWindow):
         print(f'p2 = Ac * Dp * Fs')
 
         p3 = 1
-        tlos = pow(10, (tlos_pow))
-        print(f'{tlos = }, {tlos_pow}')
+        elos = pow(10, (elos_pow))
+        print(f'{elos = }, {elos_pow}')
 
-        p1_subzone = tlos / (p2 * p3)
+        p1_subzone = elos / (p2 * p3)
         success = p1_ua < p1_subzone
         success_message = 'UAV is safe for flight in selected subzone.' if success else 'UAV is not safe for flight in selected subzone.'
 
-        self.mtow_label.setText(f'MTOW: {mtow}')
-        self.tlos_label.setText(f'TLOS: {get_scientific_notation(tlos)}')
-        self.p1_subzone_label.setText(f'P1_subzone: {get_scientific_notation(p1_subzone)}')
+        self.mtow_label.setText(f'MTOW (kg): {mtow}')
+        self.elos_label.setText(f'ELOS: {get_scientific_notation(elos)}')
         self.p1_ua_label.setText(f'P1_UA: {get_scientific_notation(p1_ua)}')
+        self.p1_subzone_label.setText(f'P1_subzone: {get_scientific_notation(p1_subzone)}')
         self.success_message_label.setText(f'P1_UA < P1_subzone: {success}\n{success_message}')
 
-        print(f'{p1_subzone =  }, {get_scientific_notation(p1_subzone)}')
         print(f'{p1_ua =  }, {get_scientific_notation(p1_ua)}')
+        print(f'{p1_subzone =  }, {get_scientific_notation(p1_subzone)}')
         print(f'P1_UA < P1_subzone: {success}')
 
 
