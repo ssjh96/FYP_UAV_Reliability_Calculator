@@ -266,6 +266,12 @@ class Page3(QtWidgets.QMainWindow):
         loadUi('ui/FYP_3.ui', self)
 
         self.places_label.setText("Select Subzone:")
+        self.place_message_label.setText("Area & Population Data:")
+        self.mtow_label.setText("MTOW (kg):")
+        self.elos_label.setText("ELOS:")
+        self.p1_ua_label.setText("P1_UA")
+        self.p1_sz_label.setText("P1_SZ")
+        self.success_message_label.setText("P1_UA < P1_SZ:")
 
         # Populate dropdown menu
         with open('Data/TotalSZData.csv', newline='') as f:
@@ -333,19 +339,19 @@ class Page3(QtWidgets.QMainWindow):
         elos = pow(10, (elos_pow))
         print(f'{elos = }, {elos_pow}')
 
-        p1_subzone = elos / (p2 * p3)
-        success = p1_ua < p1_subzone
+        p1_sz = elos / (p2 * p3)
+        success = p1_ua < p1_sz
         success_message = 'UAV is safe for flight in selected subzone.' if success else 'UAV is not safe for flight in selected subzone.'
 
         self.mtow_label.setText(f'MTOW (kg): {mtow}')
         self.elos_label.setText(f'ELOS: {get_scientific_notation(elos)}')
-        self.p1_ua_label.setText(f'P1_UA: {get_scientific_notation(p1_ua)}')
-        self.p1_subzone_label.setText(f'P1_subzone: {get_scientific_notation(p1_subzone)}')
-        self.success_message_label.setText(f'P1_UA < P1_subzone: {success}\n{success_message}')
+        self.p1_ua_label.setText(f'Overall UAV System Failure Rate (P1_UA): {get_scientific_notation(p1_ua)}')
+        self.p1_sz_label.setText(f'Maximum Allowable Failure Rate (P1_sz): {get_scientific_notation(p1_sz)}')
+        self.success_message_label.setText(f'P1_UA < P1_SZ: {success}\n{success_message}')
 
         print(f'{p1_ua =  }, {get_scientific_notation(p1_ua)}')
-        print(f'{p1_subzone =  }, {get_scientific_notation(p1_subzone)}')
-        print(f'P1_UA < P1_subzone: {success}')
+        print(f'{p1_sz =  }, {get_scientific_notation(p1_sz)}')
+        print(f'P1_UA < P1_SZ: {success}')
 
 
 def go_next():

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>910</width>
-    <height>894</height>
+    <width>909</width>
+    <height>912</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,23 +25,35 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
+      <widget class="QLabel" name="label_3">
+       <property name="font">
+        <font>
+         <underline>true</underline>
+        </font>
+       </property>
+       <property name="text">
+        <string>This page calculates the Overall UAV System Failure Rate (P1_UA) for specified UAV. Individual failure rates and Mean Time Between Failure (MTBF) may be editted accordingly.</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>1) Mean Time Between Failure (MTBF) may be given by manufacturers (e.g. replace battery in 50 hrs implies MTBF = 50 hrs)</string>
+        <string>**Data for MTBF may be given by manufacturers (e.g. replace battery in 50 hrs implies MTBF = 50 hrs).</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>2) If MTBF is given, key in MTBF for given component in hours and click &quot;Enter&quot; to override given failure rate data. Else, leave MTBF boxes blank.</string>
+        <string>1) If MTBF is given, key in MTBF for given component in hours and click &quot;Enter&quot; to override given failure rate data. Else, leave MTBF boxes blank.</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QLabel" name="label_4">
        <property name="text">
-        <string>3) Click &quot;Next Page&quot; to proceed to subzone selection.</string>
+        <string>2) Click &quot;Next Page&quot; to proceed to subzone selection.</string>
        </property>
       </widget>
      </item>
@@ -1045,7 +1057,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>910</width>
+     <width>909</width>
      <height>22</height>
     </rect>
    </property>

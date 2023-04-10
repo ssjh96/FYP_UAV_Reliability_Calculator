@@ -19,22 +19,88 @@
      <rect>
       <x>20</x>
       <y>20</y>
-      <width>751</width>
+      <width>878</width>
       <height>511</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
+      <widget class="QLabel" name="label_7">
+       <property name="font">
+        <font>
+         <underline>true</underline>
+        </font>
+       </property>
+       <property name="text">
+        <string>This program estimates Overall UAV system Failure Rate for a specified UAV (P1_UA) &amp; Max Allowable Failure Rate in Chosen Subzone (P1_SZ). </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_8">
+       <property name="font">
+        <font>
+         <underline>true</underline>
+        </font>
+       </property>
+       <property name="text">
+        <string>It also compares P1_UA against P1_SZ to determine if the specified UAV is safe for flight.</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>**Note all baseline values provided in this program corresponds to that of an average logistical multi-rotor UAV over 20,000 flight hrs. Edit values as required.</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>**Baseline values provided: (1) Average MTOW = 26.25 kg, (2) ELOS = 10^-7, (3) All failure rates in the following page.</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Minimum</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_9">
+       <property name="font">
+        <font>
+         <underline>true</underline>
+        </font>
+       </property>
+       <property name="text">
+        <string>This page allows the input of Maximum Take-Off Weight (MTOW) &amp; ELOS required for the estimation.</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>1) Input Maximum Take-Off Weight (MTOW) in kilograms (kg).</string>
+        <string>1) Input MTOW in kilograms (kg).</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>2) Input Target Level of Safety in integers from 0-9 (e.g. 7 if TLOS = 10^-7).</string>
+        <string>2) Input Equivalent Level of Safety in integers from 0-9 (e.g. 7 if ELOS = 10^-7).</string>
        </property>
       </widget>
      </item>
@@ -48,7 +114,7 @@
      <item>
       <widget class="QLabel" name="label_4">
        <property name="text">
-        <string>4) Click &quot;Next Page&quot; to proceed to P1_ua calculations.</string>
+        <string>4) Click &quot;Next Page&quot; to proceed to Overall UAV System Failure Rate (P1_UA) calculations.</string>
        </property>
       </widget>
      </item>
